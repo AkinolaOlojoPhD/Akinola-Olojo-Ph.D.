@@ -3,586 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Akinola Olojo | AI Governance & Policy Advisor</title>
-    <!-- Tailwind CSS -->
+    <title>Dr. Akinola Olojo | AI Governance & Security Policy Analyst</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js for interactive elements -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            200: '#bae0fd',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            700: '#075985',
-                            800: '#0c4a6e',
-                            900: '#0a3651',
-                        }
-                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                    }
+                    },
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <style>
-        [x-cloak] { display: none !important; }
-    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-100 selection:text-brand-900" x-data="portfolioApp()">
+<body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-slate-200 selection:text-slate-900">
 
-    <!-- TOP NAVIGATION / HEADER -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Branding / Name -->
-                <div class="flex items-center space-x-3 cursor-pointer" @click="activeTab = 'about'">
-                    <div class="w-10 h-10 rounded-xl bg-brand-900 text-white font-bold text-lg flex items-center justify-center shadow-md shadow-brand-900/10">
-                        AO
-                    </div>
-                    <div>
-                        <h1 class="font-bold text-lg text-slate-900 leading-tight">Dr. Akinola Olojo</h1>
-                        <p class="text-xs font-semibold text-brand-700">AI Governance & Policy Advisor</p>
-                    </div>
-                </div>
-
-                <!-- Desktop Tab Navigation -->
-                <nav class="hidden md:flex space-x-1 bg-slate-100/80 p-1.5 rounded-xl border border-slate-200">
-                    <button @click="activeTab = 'about'" 
-                            :class="activeTab === 'about' ? 'bg-white text-brand-800 shadow-sm font-semibold' : 'text-slate-600 hover:text-slate-900 font-medium'" 
-                            class="px-5 py-2 rounded-lg text-sm transition-all duration-200">
-                        <i class="fa-solid fa-user text-xs mr-2"></i>About Me
-                    </button>
-                    <button @click="activeTab = 'resume'" 
-                            :class="activeTab === 'resume' ? 'bg-white text-brand-800 shadow-sm font-semibold' : 'text-slate-600 hover:text-slate-900 font-medium'" 
-                            class="px-5 py-2 rounded-lg text-sm transition-all duration-200">
-                        <i class="fa-solid fa-file-lines text-xs mr-2"></i>Resume
-                    </button>
-                    <button @click="activeTab = 'artifacts'" 
-                            :class="activeTab === 'artifacts' ? 'bg-white text-brand-800 shadow-sm font-semibold' : 'text-slate-600 hover:text-slate-900 font-medium'" 
-                            class="px-5 py-2 rounded-lg text-sm transition-all duration-200">
-                        <i class="fa-solid fa-shield-halved text-xs mr-2"></i>AI Artifacts
-                    </button>
-                    <button @click="activeTab = 'contact'" 
-                            :class="activeTab === 'contact' ? 'bg-white text-brand-800 shadow-sm font-semibold' : 'text-slate-600 hover:text-slate-900 font-medium'" 
-                            class="px-5 py-2 rounded-lg text-sm transition-all duration-200">
-                        <i class="fa-solid fa-paper-plane text-xs mr-2"></i>Contact
-                    </button>
-                </nav>
-
-                <!-- Action Button -->
-                <div class="hidden sm:flex items-center space-x-3">
-                    <a href="mailto:akinolojo@gmail.com" class="px-4 py-2 bg-brand-800 hover:bg-brand-900 text-white rounded-xl text-xs font-semibold shadow-md shadow-brand-900/10 transition-all flex items-center">
-                        <i class="fa-solid fa-envelope mr-2"></i> Get in Touch
-                    </a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
-                        <i class="fa-solid" :class="mobileMenuOpen ? 'fa-xmark text-xl' : 'fa-bars text-xl'"></i>
-                    </button>
-                </div>
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#top" class="font-semibold text-slate-900 tracking-tight hover:text-blue-600 transition-colors">Dr. Akinola Olojo</a>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-slate-900 transition-colors">About</a>
+                <a href="#artifacts" class="hover:text-slate-900 transition-colors">Artifacts</a>
+                <a href="#frameworks" class="hover:text-slate-900 transition-colors">Frameworks</a>
+                <a href="#resume" class="hover:text-slate-900 transition-colors">Resume</a>
+                <a href="#skills" class="hover:text-slate-900 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-slate-900 transition-colors">Contact</a>
+            </nav>
+            <div class="flex items-center">
+                <a href="#resume" class="text-xs font-semibold bg-slate-900 text-white px-3 py-2 rounded-md hover:bg-slate-800 transition-colors">View Resume</a>
             </div>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div x-show="mobileMenuOpen" x-cloak class="md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-4 space-y-1">
-            <button @click="activeTab = 'about'; mobileMenuOpen = false" 
-                    :class="activeTab === 'about' ? 'bg-brand-50 text-brand-800 font-semibold' : 'text-slate-600'" 
-                    class="w-full text-left px-4 py-3 rounded-xl text-sm flex items-center">
-                <i class="fa-solid fa-user text-brand-700 mr-3 w-5"></i>About Me
-            </button>
-            <button @click="activeTab = 'resume'; mobileMenuOpen = false" 
-                    :class="activeTab === 'resume' ? 'bg-brand-50 text-brand-800 font-semibold' : 'text-slate-600'" 
-                    class="w-full text-left px-4 py-3 rounded-xl text-sm flex items-center">
-                <i class="fa-solid fa-file-lines text-brand-700 mr-3 w-5"></i>Resume
-            </button>
-            <button @click="activeTab = 'artifacts'; mobileMenuOpen = false" 
-                    :class="activeTab === 'artifacts' ? 'bg-brand-50 text-brand-800 font-semibold' : 'text-slate-600'" 
-                    class="w-full text-left px-4 py-3 rounded-xl text-sm flex items-center">
-                <i class="fa-solid fa-shield-halved text-brand-700 mr-3 w-5"></i>AI Artifacts & Governance
-            </button>
-            <button @click="activeTab = 'contact'; mobileMenuOpen = false" 
-                    :class="activeTab === 'contact' ? 'bg-brand-50 text-brand-800 font-semibold' : 'text-slate-600'" 
-                    class="w-full text-left px-4 py-3 rounded-xl text-sm flex items-center">
-                <i class="fa-solid fa-paper-plane text-brand-700 mr-3 w-5"></i>Contact
-            </button>
         </div>
     </header>
 
-    <!-- HERO / PROFILE BANNER (Light Executive Theme) -->
-    <section class="bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200 py-12 lg:py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
-                <!-- Profile Image & Quick Status -->
-                <div class="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-sky-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                        <div class="relative w-48 h-60 sm:w-56 sm:h-72 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-slate-200">
-                            <!-- Image URL mapped from uploaded photo asset -->
-                            <img src="Photo.jpg" 
-                                 alt="Dr. Akinola Olojo" 
-                                 class="w-full h-full object-cover object-top"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x500/0f172a/ffffff?text=Dr.+Akinola+Olojo';">
-                        </div>
-                    </div>
-                </div>
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-24">
 
-                <!-- Bio & Title Summary -->
-                <div class="lg:col-span-8 space-y-5 text-center lg:text-left">
-                    <div class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-50 text-brand-800 border border-brand-200">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span> TikTok Safety Advisory Council Member (Sub-Saharan Africa)
-                    </div>
-                    
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                        Dr. Akinola Olojo
+        <!-- Hero Section -->
+        <section id="top" class="pt-6 pb-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 space-y-6">
+                    <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 leading-snug">
+                        Policy research, security governance, and risk analysis for high-stakes environments.
                     </h1>
-                    
-                    <p class="text-lg sm:text-xl font-medium text-brand-800 leading-snug">
-                        AI Governance Specialist • Policy Advisor • Counter-Terrorism & Security Expert
+                    <p class="text-base text-slate-600 leading-relaxed">
+                        I’m Dr. Akinola Olojo. With international experience across Europe, America, and Asia and a PhD in counter-terrorism, I design the research, frameworks, and strategic assessments that make security governance, threat detection, and AI risk management defensible and actionable for real institutions.
                     </p>
-
-                    <p class="text-slate-600 text-sm sm:text-base max-w-3xl leading-relaxed">
-                        With over <strong>16 years of experience</strong> across policy research and national security advisory, Dr. Olojo bridges complex violent extremism mitigations with modern <strong>AI Governance</strong>, algorithmic content risk analysis, and NIST AI Risk Management Frameworks.
-                    </p>
-
-                    <!-- Key Metrics Grid -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-200/80">
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm">
-                            <div class="text-2xl font-bold text-slate-900">16+</div>
-                            <div class="text-xs text-slate-500 font-medium">Years Experience</div>
-                        </div>
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm">
-                            <div class="text-2xl font-bold text-slate-900">100+</div>
-                            <div class="text-xs text-slate-500 font-medium">Media Interviews</div>
-                        </div>
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm">
-                            <div class="text-2xl font-bold text-slate-900">44</div>
-                            <div class="text-xs text-slate-500 font-medium">Publications</div>
-                        </div>
-                        <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-sm">
-                            <div class="text-2xl font-bold text-slate-900">50+</div>
-                            <div class="text-xs text-slate-500 font-medium">Nations Engaged</div>
-                        </div>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#artifacts" class="bg-slate-900 text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-slate-800 transition-colors shadow-sm">View artifacts</a>
+                        <a href="#contact" class="bg-white border border-slate-300 text-slate-700 px-5 py-2.5 rounded-md text-sm font-medium hover:bg-slate-50 transition-colors">Get in touch</a>
                     </div>
-
-                    <!-- Quick Contact Links -->
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs sm:text-sm font-medium">
-                        <a href="mailto:akinolojo@gmail.com" class="text-slate-600 hover:text-brand-700 flex items-center transition">
-                            <i class="fa-solid fa-envelope text-brand-600 mr-2"></i> akinolojo@gmail.com
-                        </a>
-                        <span class="text-slate-600 flex items-center">
-                            <i class="fa-solid fa-language text-brand-600 mr-2"></i> English & French (Bilingual)
-                        </span>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                    <div class="w-48 h-48 rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 flex items-center justify-center">
+                        <img src="Photo.jpg" alt="Dr. Akinola Olojo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400';">
                     </div>
-
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- MAIN TABBED CONTENT AREA -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-
-        <!-- TAB 1: ABOUT ME -->
-        <div x-show="activeTab === 'about'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-8">
-            
-            <!-- Executive Summary Card -->
-            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="p-3 rounded-xl bg-brand-50 text-brand-700">
-                        <i class="fa-solid fa-user-tie text-xl"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-2xl font-bold text-slate-900">Executive Profile</h2>
-                        <p class="text-xs text-slate-500 font-medium">Peace, Security & AI Governance Specialist</p>
-                    </div>
-                </div>
-
-                <div class="prose max-w-none text-slate-600 text-sm sm:text-base leading-relaxed space-y-4">
+        <!-- About Section -->
+        <section id="about" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">About</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-4 text-slate-600 leading-relaxed">
                     <p>
-                        <strong>Dr. Akinola Olojo</strong> is an internationally recognized Peace, Conflict Management, and AI Governance Specialist with over 16 years of strategic experience bridging high-level security policy, counter-terrorism research, and modern technological risk architecture.
+                        I work at the intersection of security policy, institutional risk, and geopolitical analysis. My background covers counter-terrorism research, violent extremism frameworks, and non-kinetic security approaches, including integrating creative economies and youth engagement into peacebuilding.
                     </p>
                     <p>
-                        In his current advisory capacity, Dr. Olojo serves as a member of <strong>TikTok’s Safety Advisory Council for Sub-Saharan Africa</strong>, providing expert risk assessment frameworks to counter malicious online actors, threat models, and algorithmic dissemination of extremist content. He regularly conducts AI regulatory mapping, NIST AI Risk Management evaluations, and threat mitigation models for global law firms, engineering entities, and diplomatic bodies worldwide.
+                        Alongside security governance, I investigate artificial intelligence governance frameworks, focusing on AI risk management, safety regulations, and compliance standards such as the NIST AI Risk Management Framework and EU regulations.
                     </p>
+                    <div class="p-4 bg-slate-100 rounded-lg text-sm text-slate-700 border border-slate-200 mt-4">
+                        <strong>Current focus.</strong> Designing security literacy training packages, conducting geopolitical policy analysis, and evaluating regulatory frameworks for institutional deployment.
+                    </div>
+                </div>
+                <div class="space-y-4 text-sm">
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                        <div class="font-bold text-slate-900 text-lg">PhD</div>
+                        <div class="text-slate-600">Counter-Terrorism & Security Research</div>
+                    </div>
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                        <div class="font-bold text-slate-900 text-lg">Global</div>
+                        <div class="text-slate-600">Work experience across Europe, America & Asia</div>
+                    </div>
+                    <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                        <div class="font-bold text-slate-900 text-lg">Cross-Sector</div>
+                        <div class="text-slate-600">Think tanks, advisory, and policy research</div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Focus Areas Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Core Area 1 -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 transition">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-700 flex items-center justify-center mb-4 text-xl">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">AI Governance & Ethics</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Specialized in mapping controls to the NIST AI Risk Management Framework, EU AI Act alignment, conducting AI Impact Assessments, and mitigating algorithmic bias.
-                    </p>
-                </div>
-
-                <!-- Core Area 2 -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 transition">
-                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 text-xl">
-                        <i class="fa-solid fa-shield-cat"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Counter-Terrorism & P/CVE</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Extensive fieldwork in preventing and countering violent extremism across the Lake Chad Basin, Horn of Africa, Sahel, and Southern Africa.
-                    </p>
-                </div>
-
-                <!-- Core Area 3 -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 transition">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 text-xl">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">High-Level Strategic Advisory</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Briefings for the U.S. House Foreign Affairs Committee, UN Expert Groups, Geneva Centre for Security Policy, and training diplomats across 50 countries.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Key Technical & Governance Capabilities -->
-            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
-                <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center">
-                    <i class="fa-solid fa-gears text-brand-700 mr-2"></i> Key Governance Competencies
-                </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    <template x-for="skill in skills" :key="skill">
-                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs sm:text-sm font-semibold text-slate-700 flex items-center">
-                            <i class="fa-solid fa-circle-check text-emerald-500 mr-2 text-xs"></i>
-                            <span x-text="skill"></span>
-                        </div>
-                    </template>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- TAB 2: RESUME -->
-        <div x-show="activeTab === 'resume'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-8">
+        <!-- Artifacts Section -->
+        <section id="artifacts" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-2">Artifacts</h2>
+            <p class="text-sm text-slate-600 mb-6">Selected policy briefs, research papers, and governance frameworks.</p>
             
-            <!-- Resume Header Download Action -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900">Curriculum Vitae</h2>
-                    <p class="text-xs text-slate-500 font-medium">Comprehensive Professional History & Academic Record</p>
+            <div class="space-y-6">
+                <!-- Artifact 1 -->
+                <article class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-all">
+                    <div class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Policy Brief</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Beyond Oil: Leveraging the Creative Sector for Security Governance</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Explores how African and Middle Eastern nations (specifically Nigeria and the United Arab Emirates) can utilize the creative economy and youth engagement as a soft-power mechanism for peacebuilding and trust-building.
+                    </p>
+                    <div class="flex items-center space-x-4 text-xs font-medium text-slate-700">
+                        <span class="bg-slate-100 px-2.5 py-1 rounded">Soft Power & Peacebuilding</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded">Middle East & Africa</span>
+                    </div>
+                </article>
+
+                <!-- Artifact 2 -->
+                <article class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-all">
+                    <div class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Training Curriculum</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">AI Governance & Security Literacy Training Package</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Designed role-based training matrices, compliance modules, and assessment frameworks for law firms and security organizations navigating data privacy regulations and AI risk protocols.
+                    </p>
+                    <div class="flex items-center space-x-4 text-xs font-medium text-slate-700">
+                        <span class="bg-slate-100 px-2.5 py-1 rounded">AI Risk Management</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded">Compliance Training</span>
+                    </div>
+                </article>
+
+                <!-- Artifact 3 -->
+                <article class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-all">
+                    <div class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Threat Analysis</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Insurgent Group Dynamics in the Sahel and Horn of Africa</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Comprehensive analysis on the operational patterns of JNIM, ISSP, ISWAP, and Al-Shabaab across Mali, Niger, and Nigeria to support threat assessment and mitigation strategies.
+                    </p>
+                    <div class="flex items-center space-x-4 text-xs font-medium text-slate-700">
+                        <span class="bg-slate-100 px-2.5 py-1 rounded">Counter-Terrorism</span>
+                        <span class="bg-slate-100 px-2.5 py-1 rounded">Geopolitical Risk</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Frameworks Section -->
+        <section id="frameworks" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Frameworks and standards</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="font-bold text-slate-900">NIST AI RMF</div>
+                    <div class="text-xs text-slate-500 mt-1">Govern, Map, Measure, Manage</div>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <button @click="window.print()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold transition flex items-center border border-slate-200">
-                        <i class="fa-solid fa-print mr-2"></i> Print / Save PDF
-                    </button>
+                <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="font-bold text-slate-900">EU AI Act</div>
+                    <div class="text-xs text-slate-500 mt-1">Risk-based AI regulation</div>
+                </div>
+                <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="font-bold text-slate-900">Security Governance</div>
+                    <div class="text-xs text-slate-500 mt-1">Threat detection & compliance</div>
+                </div>
+                <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="font-bold text-slate-900">Texas RAI Act</div>
+                    <div class="text-xs text-slate-500 mt-1">State-level AI governance rules</div>
+                </div>
+                <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="font-bold text-slate-900">CVE Frameworks</div>
+                    <div class="text-xs text-slate-500 mt-1">Countering violent extremism</div>
+                </div>
+                <div class="p-4 bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <div class="font-bold text-slate-900">Risk Assessment</div>
+                    <div class="text-xs text-slate-500 mt-1">Impact modeling & audits</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Professional Experience Timeline -->
-            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
-                <h3 class="text-xl font-bold text-slate-900 mb-8 flex items-center">
-                    <i class="fa-solid fa-briefcase text-brand-700 mr-3"></i> Professional Experience
-                </h3>
-
-                <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-200">
-                    
-                    <!-- Exp 1 -->
-                    <div class="relative pl-8">
-                        <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-brand-700 border-4 border-white shadow"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-brand-800 font-bold mb-1">
-                            <span>August 2023 - Present</span>
-                            <span class="bg-brand-50 text-brand-800 px-2.5 py-0.5 rounded-md border border-brand-200">Global & Sub-Saharan Africa</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-slate-900">Peace, Security and AI Governance Consultant</h4>
-                        <p class="text-xs font-semibold text-slate-500 mb-3">Independent Advisory & Advisory Board Member</p>
-                        <ul class="list-disc list-outside text-slate-600 text-xs sm:text-sm space-y-2 ml-4 leading-relaxed">
-                            <li>Appointed member of <strong>TikTok's Safety Advisory Council for Sub-Saharan Africa</strong>, delivering threat analysis and security frameworks against harmful actors.</li>
-                            <li>Produced comprehensive <strong>AI Landscape & Regulatory Reports</strong> mapped against the <strong>NIST AI Risk Management Framework</strong> for engineering and legal entities.</li>
-                            <li>Consulted by the <strong>Geneva Centre for Security Policy (GCSP)</strong> to train over 70+ mid-level diplomats and military officers from 50 nations.</li>
-                            <li>Engaged in multi-stakeholder consultations in France, Ireland, Nigeria, Senegal, and Singapore on algorithmic dissemination mitigations.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Exp 2 -->
-                    <div class="relative pl-8">
-                        <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 font-semibold mb-1">
-                            <span>May 2022 - August 2023</span>
-                            <span>Senegal & Lake Chad Region</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-slate-900">Project Manager - Lake Chad Basin Team</h4>
-                        <p class="text-xs font-semibold text-slate-500 mb-3">Institute for Security Studies (ISS)</p>
-                        <ul class="list-disc list-outside text-slate-600 text-xs sm:text-sm space-y-2 ml-4 leading-relaxed">
-                            <li>Managed transitional justice programs in Cameroon, Chad, Niger, and Nigeria funded by the U.S. Mission to the African Union.</li>
-                            <li>Co-led research with UNIDIR exploring dialogue frameworks to resolve Boko Haram conflict complexities.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Exp 3 -->
-                    <div class="relative pl-8">
-                        <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 font-semibold mb-1">
-                            <span>July 2018 - May 2022</span>
-                            <span>South Africa & Senegal</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-slate-900">Senior Researcher</h4>
-                        <p class="text-xs font-semibold text-slate-500 mb-3">Institute for Security Studies (ISS)</p>
-                        <ul class="list-disc list-outside text-slate-600 text-xs sm:text-sm space-y-2 ml-4 leading-relaxed">
-                            <li>Led high-impact project on dialogue viability with Boko Haram/al-Shabaab; invited to brief the <strong>U.S. Congress House Foreign Affairs Subcommittee</strong> in Washington, D.C.</li>
-                            <li>Awarded the prestigious <strong>Executive Director Innovation Award</strong> for contributions to ISS research ethics.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Exp 4 -->
-                    <div class="relative pl-8">
-                        <div class="absolute left-1.5 top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-500 font-semibold mb-1">
-                            <span>January 2017 - July 2018</span>
-                            <span>Reims, France</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-slate-900">Visiting Scholar</h4>
-                        <p class="text-xs font-semibold text-slate-500 mb-3">Institut d'Études Politiques (SciencesPo)</p>
-                        <ul class="list-disc list-outside text-slate-600 text-xs sm:text-sm space-y-2 ml-4 leading-relaxed">
-                            <li>Designed and taught undergraduate/graduate modules on violent extremism and African security dynamics.</li>
-                            <li>Contributed to the UN Expert Group on countering racism and xenophobia in counter-terrorism contexts.</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Academic Qualifications Grid -->
-            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                    <i class="fa-solid fa-graduation-cap text-brand-700 mr-3"></i> Education & Academic Credentials
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="text-xs font-bold text-brand-700">2013 - 2016</div>
-                        <h4 class="font-bold text-slate-900 text-base">Doctorate in Political Sociology (PhD)</h4>
-                        <p class="text-xs text-slate-600">Université Paris Descartes, France</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="text-xs font-bold text-brand-700">2010 - 2011</div>
-                        <h4 class="font-bold text-slate-900 text-base">Master of Arts (MA) - Conflict, Security & Development</h4>
-                        <p class="text-xs text-slate-600">King's College London, United Kingdom</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="text-xs font-bold text-brand-700">2008 - 2010</div>
-                        <h4 class="font-bold text-slate-900 text-base">Master of Science (M.Sc) - Political Science</h4>
-                        <p class="text-xs text-slate-600">University of Lagos, Nigeria</p>
-                    </div>
-                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="text-xs font-bold text-brand-700">1999 - 2004</div>
-                        <h4 class="font-bold text-slate-900 text-base">Bachelor of Science (B.Sc) - International Relations</h4>
-                        <p class="text-xs text-slate-600">Obafemi Awolowo University, Nigeria</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- TAB 3: ARTIFACTS -->
-        <div x-show="activeTab === 'artifacts'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-8">
+        <!-- Resume Section -->
+        <section id="resume" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Resume</h2>
             
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <h2 class="text-2xl font-bold text-slate-900">AI Governance Artifacts & Strategic Projects</h2>
-                <p class="text-xs text-slate-500 font-medium">Applied frameworks, regulatory reports, risk registers, and threat modeling frameworks created by Dr. Olojo.</p>
+            <div class="space-y-8">
+                <!-- Experience Item -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">Advisory & Policy</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Senior Policy Advisor & Researcher</h3>
+                        <p class="text-sm text-slate-600">Think tanks & international consultancies (Europe, America, Asia)</p>
+                        <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
+                            <li>Conducted rigorous policy research on security governance, counter-terrorism, and geopolitical risk.</li>
+                            <li>Designed advisory frameworks and training packages for institutional clients and legal organizations.</li>
+                            <li>Integrated creative economy strategies and youth engagement models into peacebuilding initiatives.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">Security & Governance</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Counter-Terrorism & Security Analyst</h3>
+                        <p class="text-sm text-slate-600">Independent Research & Institutional Projects</p>
+                        <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
+                            <li>Analyzed insurgent group behaviors, regional dynamics, and non-kinetic deterrence models.</li>
+                            <li>Authored comprehensive threat assessments and structural defense policy papers.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <!-- Interactive Artifact Cards -->
+            <div class="mt-12 pt-6 border-t border-slate-200">
+                <h3 class="text-base font-bold text-slate-900 mb-4">Education & Credentials</h3>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start">
+                        <span class="font-semibold text-slate-900 w-32 shrink-0">Ph.D.</span>
+                        <span>Counter-Terrorism & Security Studies</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="font-semibold text-slate-900 w-32 shrink-0">Global Experience</span>
+                        <span>International work across Europe, America, and Asia</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Skills</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <template x-for="artifact in artifacts" :key="artifact.id">
-                    <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 border border-brand-200" x-text="artifact.category"></span>
-                                <span class="text-xs text-slate-400 font-medium" x-text="artifact.framework"></span>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 mb-2" x-text="artifact.title"></h3>
-                            <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed" x-text="artifact.description"></p>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-xs font-semibold text-slate-500" x-text="artifact.date"></span>
-                            <button @click="selectedArtifact = artifact" class="px-3.5 py-1.5 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 text-slate-700 rounded-lg text-xs font-semibold transition">
-                                View Details <i class="fa-solid fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </template>
-            </div>
-
-            <!-- Modal for Artifact Details -->
-            <div x-show="selectedArtifact" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
-                <div @click.away="selectedArtifact = null" class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
-                    <template x-if="selectedArtifact">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <div>
-                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 border border-brand-200" x-text="selectedArtifact.category"></span>
-                                    <h3 class="text-xl font-bold text-slate-900 mt-2" x-text="selectedArtifact.title"></h3>
-                                </div>
-                                <button @click="selectedArtifact = null" class="text-slate-400 hover:text-slate-600 text-lg p-1">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
-                            <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                <div>
-                                    <h4 class="font-bold text-slate-900 mb-1">Overview & Scope</h4>
-                                    <p x-text="selectedArtifact.details"></p>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 mb-1">Key Frameworks Mapped</h4>
-                                    <p class="font-mono bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-xs text-brand-900" x-text="selectedArtifact.framework"></p>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900 mb-1">Impact & Strategic Output</h4>
-                                    <p x-text="selectedArtifact.impact"></p>
-                                </div>
-                            </div>
-                            <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
-                                <button @click="selectedArtifact = null" class="px-5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold rounded-xl">
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </template>
+                <div class="p-5 bg-white border border-slate-200 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-3">Security & Policy Research</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li>• Counter-terrorism & CVE frameworks</li>
+                        <li>• Geopolitical risk analysis</li>
+                        <li>• Non-kinetic security & soft power</li>
+                        <li>• Threat detection & assessment</li>
+                    </ul>
+                </div>
+                <div class="p-5 bg-white border border-slate-200 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-3">AI Governance & Compliance</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li>• NIST AI Risk Management Framework</li>
+                        <li>• Regulatory compliance & AI policy</li>
+                        <li>• Training program design & rollout</li>
+                        <li>• Data privacy & ethical deployment</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
-        </div>
-
-        <!-- TAB 4: CONTACT -->
-        <div x-show="activeTab === 'contact'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" class="space-y-8">
-            
-            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm max-w-4xl mx-auto">
-                <div class="text-center max-w-2xl mx-auto mb-8">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Get in Touch</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 mt-2">Interested in AI Governance advisory, security policy risk assessment, or executive briefings? Reach out directly.</p>
-                </div>
-
-                <div class="max-w-md mx-auto">
-                    <!-- Contact Cards -->
-                    <a href="mailto:akinolojo@gmail.com" class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-300 hover:bg-brand-50/30 transition flex items-start space-x-4">
-                        <div class="p-3 bg-brand-100 text-brand-700 rounded-xl">
-                            <i class="fa-solid fa-envelope text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-slate-900 text-sm">Direct Email</h3>
-                            <p class="text-xs text-slate-500 mt-1">akinolojo@gmail.com</p>
-                            <span class="inline-block mt-3 text-xs font-semibold text-brand-700">Send an inquiry <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Advisory Engagement Details -->
-                <div class="mt-8 p-6 rounded-2xl bg-brand-50/50 border border-brand-100 text-center">
-                    <h4 class="font-bold text-brand-900 text-sm">Global Availability & Engagements</h4>
-                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                        Available for international advisory panels, policy keynotes, diplomatic trainings, AI risk assessments, and executive security briefings worldwide (Bilingual: English & French).
-                    </p>
-                </div>
+        <!-- Contact Section -->
+        <section id="contact" class="scroll-mt-24 pb-12">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Contact</h2>
+            <p class="text-slate-600 mb-6 leading-relaxed">
+                Open to advisory roles, policy research consultations, and speaking engagements regarding security governance, counter-terrorism, and AI risk compliance.
+            </p>
+            <div class="space-y-3 text-sm">
+                <p><b>Email:</b> <a href="mailto:akinolojo@example.com" class="text-blue-600 hover:underline">akinolojo@example.com</a></p>
+                <p><b>LinkedIn:</b> <a href="https://linkedin.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline">linkedin.com/in/akinola-olojo</a></p>
             </div>
-
-        </div>
+        </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-white border-t border-slate-200 py-8 text-xs text-slate-500 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-                <p class="font-semibold text-slate-800">Dr. Akinola Olojo</p>
-                <p>AI Governance & Counter-Terrorism Policy Advisor</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="mailto:akinolojo@gmail.com" class="hover:text-brand-700 transition"><i class="fa-solid fa-envelope"></i> Email</a>
-            </div>
-            <div class="text-slate-400">
-                © 2026 Dr. Akinola Olojo. All rights reserved.
-            </div>
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8">
+        <div class="max-w-4xl mx-auto px-6 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div><b>Dr. Akinola Olojo</b> &copy; 2026. All rights reserved.</div>
+            <div>Professional AI & Security Governance Portfolio</div>
         </div>
     </footer>
 
-    <!-- Alpine State Logic -->
-    <script>
-        function portfolioApp() {
-            return {
-                activeTab: 'about',
-                mobileMenuOpen: false,
-                selectedArtifact: null,
-                skills: [
-                    'NIST AI RMF 1.0',
-                    'EU AI Act Governance',
-                    'AI Impact Assessments (AIIA)',
-                    'Likelihood x Impact Scoring',
-                    'Bias Mitigation',
-                    'Algorithmic Risk Modeling',
-                    'Threat Actor Profiling',
-                    'Strategic Policy Advisory',
-                    'P/CVE Frameworks',
-                    'Diplomatic Security Training',
-                    'Executive Briefings',
-                    'Bilingual Communication'
-                ],
-                artifacts: [
-                    {
-                        id: 1,
-                        title: 'NIST AI Risk Management Landscape Report',
-                        category: 'AI Risk & Compliance',
-                        framework: 'NIST AI RMF 1.0 / Enterprise Risk',
-                        date: '2024',
-                        description: 'Embedded engineering company risk assessment mapping corporate controls against NIST governance sub-functions.',
-                        details: 'Produced an executive AI landscape report evaluating algorithmic vulnerability, hardware integration risks, and risk mapping tailored for enterprise embedded engineering systems.',
-                        impact: 'Standardized internal AI safety benchmarks across development cycles.'
-                    },
-                    {
-                        id: 2,
-                        title: 'AI Regulatory & Legal Compliance Mapping',
-                        category: 'Regulatory Policy',
-                        framework: 'EU AI Act / Legal Liability Frameworks',
-                        date: '2024',
-                        description: 'Regulatory landscape and legal risk assessment produced for a mid-size international law firm.',
-                        details: 'Delivered an strategic report on emerging AI legislation, copyright liabilities, data protection overlaps, and compliance risks facing legal practice clients.',
-                        impact: 'Guided senior partners in structuring AI advisory practice areas.'
-                    },
-                    {
-                        id: 3,
-                        title: 'Security Threats Detection Institute Policy & Risk Architecture',
-                        category: 'Threat Mitigation',
-                        framework: 'AI Impact Assessment / Bias Mitigation',
-                        date: '2024',
-                        description: 'Simulated institutional policy, risk registers, and threat architecture for threat detection AI models.',
-                        details: 'Designed comprehensive risk mitigation mechanisms, likelihood x impact scoring matrices, and operational workflows for automated threat detection tools.',
-                        impact: 'Serves as a reference architecture for secure public-safety AI deployment.'
-                    },
-                    {
-                        id: 4,
-                        title: 'TikTok Safety Advisory Council Threat Framework',
-                        category: 'Social Media & Safety',
-                        framework: 'Online Safety / Counter-Extremism',
-                        date: '2023 - Present',
-                        description: 'Strategic advisory on countering harmful online actors and algorithmic content dissemination in Sub-Saharan Africa.',
-                        details: 'Provides continuous advisory on adversarial tactics, online radicalization pathways, and policy responses for regional content safety.',
-                        impact: 'Enhanced platform safety policies across Sub-Saharan African jurisdictions.'
-                    }
-                ]
-            }
-        }
-    </script>
 </body>
 </html>
