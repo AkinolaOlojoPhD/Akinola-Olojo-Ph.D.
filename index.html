@@ -25,28 +25,55 @@
     </script>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-slate-200 selection:text-slate-900">
-
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#top" class="font-normal text-slate-900 tracking-tight hover:text-blue-600 transition-colors">Dr. Akinola Olojo</a>
-            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
-                <a href="#about" class="hover:text-slate-900 transition-colors">About me</a>
-                <a href="#artifacts" class="hover:text-slate-900 transition-colors">Artifacts</a>
-                <a href="#frameworks" class="hover:text-slate-900 transition-colors">Frameworks</a>
-                <a href="#resume" class="hover:text-slate-900 transition-colors">Resume</a>
-                <a href="#skills" class="hover:text-slate-900 transition-colors">Skills</a>
-                <a href="#contact" class="hover:text-slate-900 transition-colors">Contact</a>
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <!-- Brand Logo / Name -->
+            <a href="#top" class="font-bold text-slate-900 tracking-tight hover:text-blue-600 transition-colors whitespace-nowrap text-base sm:text-lg shrink-0">
+                Dr. Akinola Olojo
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs lg:text-sm font-medium text-slate-600">
+                <a href="#about" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">About me</a>
+                <a href="#artifacts" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Artifacts</a>
+                <a href="#frameworks" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Frameworks</a>
+                <a href="#stakeholders" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Stakeholder influence</a>
+                <a href="#resume" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Resume</a>
+                <a href="#skills" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Skills</a>
+                <a href="#contact" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Contact</a>
             </nav>
-            <div class="flex items-center">
-                <a href="#resume" class="text-xs font-semibold bg-slate-900 text-white px-3 py-2 rounded-md hover:bg-slate-800 transition-colors">View Resume</a>
+
+            <!-- Action Button & Mobile Menu Toggle -->
+            <div class="flex items-center space-x-3 shrink-0">
+                <a href="#resume" class="text-xs font-bold bg-slate-900 text-white px-3.5 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-sm whitespace-nowrap">
+                    View Resume
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="md:hidden p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 text-sm font-semibold text-slate-700">
+            <a @click="mobileMenuOpen = false" href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">About me</a>
+            <a @click="mobileMenuOpen = false" href="#artifacts" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Artifacts</a>
+            <a @click="mobileMenuOpen = false" href="#frameworks" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Frameworks</a>
+            <a @click="mobileMenuOpen = false" href="#stakeholders" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Stakeholder influence</a>
+            <a @click="mobileMenuOpen = false" href="#resume" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Resume</a>
+            <a @click="mobileMenuOpen = false" href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Skills</a>
+            <a @click="mobileMenuOpen = false" href="#contact" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Contact</a>
         </div>
     </header>
 
     <!-- Main Content Container -->
     <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
-
         <!-- Executive Hero Section with Portfolio Heading -->
         <section id="top" class="pt-2 pb-6">
             <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
@@ -76,7 +103,6 @@
                 </div>
             </div>
         </section>
-
         <!-- About me Section -->
         <section id="about" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">About me</h2>
@@ -87,8 +113,6 @@
                     </p>
                     <p>
                         My professional journey in this field makes me aware that while violent extremism is an “old enemy”, it can no longer be fought with only boots on the ground. This adversary now has digital footprints reflected in algorithms and trends. Addressing this adaptive challenge requires professionals who can combine their expertise of a longstanding subject matter with the contemporary application of AI governance. This is where I bring value.
-                    </p>
-                    <p> 
                     </p>
                 </div>
                 <div class="space-y-4 text-sm">
@@ -107,7 +131,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Artifacts Section -->
         <section id="artifacts" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-2">Artifacts</h2>
@@ -132,7 +155,6 @@
                         <span class="bg-slate-100 px-2.5 py-1 rounded">Federal Court Disclosures</span>
                     </div>
                 </article>
-
                 <!-- Artifact 2: AI Landscape for Engineering Firm -->
                 <article class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-all">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
@@ -151,7 +173,6 @@
                         <span class="bg-slate-100 px-2.5 py-1 rounded">Risk Probing & Pushback Mitigation</span>
                     </div>
                 </article>
-
                 <!-- Artifact 3: STDI AI Governance Policy -->
                 <article class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-all">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
@@ -172,7 +193,6 @@
                 </article>
             </div>
         </section>
-
         <!-- Frameworks Section -->
         <section id="frameworks" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Frameworks and standards</h2>
@@ -203,157 +223,187 @@
                 </div>
             </div>
         </section>
+        <!-- Stakeholder Influence Section -->
+        <section id="stakeholders" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-2">Stakeholder influence</h2>
+            <p class="text-sm text-slate-600 mb-6">Highlights of key advisory engagements, diplomatic consultations, high-level briefings, and policy workshops with global stakeholders.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Highlight Item 1 -->
+                <div class="p-5 bg-white border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-full h-48 bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
+                            <!-- Replace src with your image file (e.g. stakeholder-1.jpg) -->
+                            <img src="stakeholder-1.jpg" alt="TikTok Safety Advisory Council Engagement" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600';">
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg">TikTok Trust & Safety Advisory Council</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Engaging with regional experts and platform leaders across Sub-Saharan Africa to mitigate security threats, counter violent extremist content dissemination, and advise on algorithmic safety policy.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                        Sub-Saharan Africa & Global
+                    </div>
+                </div>
 
-       <!-- Resume Section -->
-<section id="resume" class="scroll-mt-24">
-    <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Resume</h2>
-    
-    <div class="space-y-8">
-        <!-- Role 1 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">August 2023 – till date</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Peace, Security and AI Governance Consultant</h3>
-                <p class="text-sm font-medium text-slate-700">Sub-Saharan Africa and Global</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Appointed as member of TikTok’s Safety Advisory Council for sub-Saharan Africa, providing risk assessment expertise and security policy frameworks to counter threats from harmful online actors.</li>
-                    <li>Produced an AI landscape report for the risk assessment of an embedded engineering company, mapping controls to the NIST AI Risk Management Framework.</li>
-                    <li>Produced an AI regulatory landscape report for a mid-size law firm.</li>
-                    <li>Contributed to cross-functional stakeholder consultations in France, Ireland, Nigeria, Senegal and Singapore, on threat modelling and mitigation of algorithmic dissemination of extremist/adversarial content online.</li>
-                    <li>Consulted by the Geneva Centre for Security Policy to train over 70+ mid-level diplomats, parliamentarians and security personnel from 50 countries on security risk analysis, threat mitigation and policy frameworks to address violent extremism and terrorism in sub-Saharan Africa.</li>
-                </ul>
+                <!-- Highlight Item 2 -->
+                <div class="p-5 bg-white border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-full h-48 bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
+                            <!-- Replace src with your image file (e.g. stakeholder-2.jpg) -->
+                            <img src="stakeholder-2.jpg" alt="Diplomatic & Congressional Briefings" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&q=80&w=600';">
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg">Diplomatic & Executive Briefings</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Delivering strategic consultations to diplomats, parliamentarians, and international security professionals at convenings including the Geneva Centre for Security Policy and US House Foreign Affairs Committee briefings.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                        International Security & Policy
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!-- Role 2 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">May 2022 – August 2023</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Project Manager, Lake Chad Basin Team</h3>
-                <p class="text-sm font-medium text-slate-700">Institute for Security Studies, Senegal</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Planned and implemented project on transitional justice in the Lake Chad Basin countries (Cameroon, Chad, Niger and Nigeria) with funding support from the United States Mission to the African Union.</li>
-                    <li>Frequent representation at high-level diplomatic, political and policy research convenings on matters relating to human security, violent extremism and terrorism, political economy, disengagement of ex-combatants and transitional justice for conflict-affected communities.</li>
-                    <li>Co-led a project with the United Nations Institute for Disarmament Research on exploring dialogue and negotiation to address the conflict in the Lake Chad Basin.</li>
-                </ul>
+        </section>
+        <!-- Resume Section -->
+        <section id="resume" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Resume</h2>
+            
+            <div class="space-y-8">
+                <!-- Role 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">August 2023 – till date</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Peace, Security and AI Governance Consultant</h3>
+                        <p class="text-sm font-medium text-slate-700">Sub-Saharan Africa and Global</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Appointed as member of TikTok’s Safety Advisory Council for sub-Saharan Africa, providing risk assessment expertise and security policy frameworks to counter threats from harmful online actors.</li>
+                            <li>Produced an AI landscape report for the risk assessment of an embedded engineering company, mapping controls to the NIST AI Risk Management Framework.</li>
+                            <li>Produced an AI regulatory landscape report for a mid-size law firm.</li>
+                            <li>Contributed to cross-functional stakeholder consultations in France, Ireland, Nigeria, Senegal and Singapore, on threat modelling and mitigation of algorithmic dissemination of extremist/adversarial content online.</li>
+                            <li>Consulted by the Geneva Centre for Security Policy to train over 70+ mid-level diplomats, parliamentarians and security personnel from 50 countries on security risk analysis, threat mitigation and policy frameworks to address violent extremism and terrorism in sub-Saharan Africa.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">May 2022 – August 2023</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Project Manager, Lake Chad Basin Team</h3>
+                        <p class="text-sm font-medium text-slate-700">Institute for Security Studies, Senegal</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Planned and implemented project on transitional justice in the Lake Chad Basin countries (Cameroon, Chad, Niger and Nigeria) with funding support from the United States Mission to the African Union.</li>
+                            <li>Frequent representation at high-level diplomatic, political and policy research convenings on matters relating to human security, violent extremism and terrorism, political economy, disengagement of ex-combatants and transitional justice for conflict-affected communities.</li>
+                            <li>Co-led a project with the United Nations Institute for Disarmament Research on exploring dialogue and negotiation to address the conflict in the Lake Chad Basin.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">July 2018 – May 2022</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Senior Researcher</h3>
+                        <p class="text-sm font-medium text-slate-700">Institute for Security Studies, South Africa and Senegal</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Briefed US Congress officials in Washington D.C. on "Dialogue with terrorists" project, essential to the work of the Africa subcommittee of the US House Foreign Affairs Committee. </li>
+                            <li>Co-managed research projects on countering violent extremism and counter-terrorism in the Lake Chad Basin, East and Horn of Africa, and Southern Africa regions.</li>
+                            <li>Received the ‘Executive Director Innovation Award’ for contributing to shaping research ethics and processes for staff of the Institute for Security Studies.</li>
+                            <li>High-level presentations and tailored briefings to local, national, regional and global policymakers, governments and relevant stakeholders.</li>
+                            <li>Mentoring of junior colleagues and contribution to periodic counter-terrorism trainings and workshops for the Eastern Africa Police Chiefs Cooperation Organization.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 4 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">January 2017 – July 2018</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Visiting Scholar</h3>
+                        <p class="text-sm font-medium text-slate-700">Understanding Violence and Terrorism in Africa South of the Sahara, Institut d’Études Politiques (SciencesPo), Reims, France</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Designed and taught a course on understanding violence and terrorism in Africa south of the Sahara.</li>
+                            <li>Contributed to the United Nations expert group on combating racism, xenophobia and discrimination in the context of counter-terrorism.</li>
+                            <li>Consulted by the Geneva Centre for Security Policy to train mid-level diplomats on leadership in international security and global security challenges relative to Europe.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 5 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">September 2013 – November 2016</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Doctoral Researcher</h3>
+                        <p class="text-sm font-medium text-slate-700">Université Paris Descartes and Centre for Population and Development, France</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Doctoral study on “The Boko Haram crisis and the narratives of resistance in northern Nigeria: the case of Sokoto state”.</li>
+                            <li>Contributed to seminars and presented research as a member of the Centre for Population and Development, Paris.</li>
+                            <li>Teaching Assistant for a course on ‘The Geopolitics of Violence in Africa South of the Sahara’ at the Institute for Political Studies (SciencesPo) in Paris and Reims.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 6 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">May – June 2013</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Visiting Research Fellow</h3>
+                        <p class="text-sm font-medium text-slate-700">International Centre for Counter-Terrorism, The Netherlands</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Led a research project on the drivers of public support for Boko Haram in Nigeria.</li>
+                            <li>Contributed to roundtable and book project of the EGMONT Institute (Royal Institute for International Relations), Brussels on ‘Time for a new approach on terror in Africa?’.</li>
+                            <li>First West African scholar to be engaged by the International Centre for Counter-Terrorism as a visiting research fellow and also first to work on a Boko Haram-related project in this capacity.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 7 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">April 2012 – June 2013</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Research Consultant</h3>
+                        <p class="text-sm font-medium text-slate-700">Africa Centre for Open Governance (AfriCOG), Nairobi, Kenya</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Led project on ‘The Establishment of the Africa Centre for Open Governance (AfriCOG) in Nigeria’.</li>
+                            <li>Drafted feasibility report on the expansion of AfriCOG from Kenya to Nigeria.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 8 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">September 2010 – April 2012</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Peace, Security and Development Fellow</h3>
+                        <p class="text-sm font-medium text-slate-700">African Leadership Centre, London</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Led and drafted study on ‘Boko Haram, leadership and exit strategies from a sectarian challenge’.</li>
+                            <li>Junior Professional Fellow at the International Peace Institute, New York (July-August, 2011).</li>
+                            <li>Contributed to visiting study at the European Union Parliament; EU Council of Ministers; EU Commission; and International Crisis Group. Brussels, Belgium (February, 2011).</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 9 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">March 2008 – September 2010</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Clientele Relations Executive</h3>
+                        <p class="text-sm font-medium text-slate-700">Globacom Telecommunications, Lagos, Nigeria</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Regularly updated Customer Relationship Management (CRM) systems to enhance customer interaction and build business relationship for organisation.</li>
+                            <li>Satisfied clients’ requests and was awarded best customer care agent in a team of over 60 members.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Role 10 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">January 2007 – March 2008</div>
+                    <div class="md:col-span-3 space-y-2">
+                        <h3 class="text-base font-bold text-slate-900">Human Resources Assistant</h3>
+                        <p class="text-sm font-medium text-slate-700">Hydra Energy Resources Limited, Lagos, Nigeria</p>
+                        <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
+                            <li>Evaluated CVs and conducted interviews prior to recruitment of staff to organisations.</li>
+                            <li>Prospected and designed strategies for business development with new clients.</li>
+                            <li>Relationship management with clientele.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!-- Role 3 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">July 2018 – May 2022</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Senior Researcher</h3>
-                <p class="text-sm font-medium text-slate-700">Institute for Security Studies, South Africa and Senegal</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Briefed US Congress officials in Washington D.C. on "Dialogue with terrorists" project, essential to the work of the Africa subcommittee of the US House Foreign Affairs Committee. </li>
-                    <li>Co-managed research projects on countering violent extremism and counter-terrorism in the Lake Chad Basin, East and Horn of Africa, and Southern Africa regions.</li>
-                    <li>Received the ‘Executive Director Innovation Award’ for contributing to shaping research ethics and processes for staff of the Institute for Security Studies.</li>
-                    <li>High-level presentations and tailored briefings to local, national, regional and global policymakers, governments and relevant stakeholders.</li>
-                    <li>Mentoring of junior colleagues and contribution to periodic counter-terrorism trainings and workshops for the Eastern Africa Police Chiefs Cooperation Organization.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Role 4 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">January 2017 – July 2018</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Visiting Scholar</h3>
-                <p class="text-sm font-medium text-slate-700">Understanding Violence and Terrorism in Africa South of the Sahara, Institut d’Études Politiques (SciencesPo), Reims, France</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Designed and taught a course on understanding violence and terrorism in Africa south of the Sahara.</li>
-                    <li>Contributed to the United Nations expert group on combating racism, xenophobia and discrimination in the context of counter-terrorism.</li>
-                    <li>Consulted by the Geneva Centre for Security Policy to train mid-level diplomats on leadership in international security and global security challenges relative to Europe.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Role 5 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">September 2013 – November 2016</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Doctoral Researcher</h3>
-                <p class="text-sm font-medium text-slate-700">Université Paris Descartes and Centre for Population and Development, France</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Doctoral study on “The Boko Haram crisis and the narratives of resistance in northern Nigeria: the case of Sokoto state”.</li>
-                    <li>Contributed to seminars and presented research as a member of the Centre for Population and Development, Paris.</li>
-                    <li>Teaching Assistant for a course on ‘The Geopolitics of Violence in Africa South of the Sahara’ at the Institute for Political Studies (SciencesPo) in Paris and Reims.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Role 6 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">May – June 2013</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Visiting Research Fellow</h3>
-                <p class="text-sm font-medium text-slate-700">International Centre for Counter-Terrorism, The Netherlands</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Led a research project on the drivers of public support for Boko Haram in Nigeria.</li>
-                    <li>Contributed to roundtable and book project of the EGMONT Institute (Royal Institute for International Relations), Brussels on ‘Time for a new approach on terror in Africa?’.</li>
-                    <li>First West African scholar to be engaged by the International Centre for Counter-Terrorism as a visiting research fellow and also first to work on a Boko Haram-related project in this capacity.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Role 7 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">April 2012 – June 2013</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Research Consultant</h3>
-                <p class="text-sm font-medium text-slate-700">Africa Centre for Open Governance (AfriCOG), Nairobi, Kenya</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Led project on ‘The Establishment of the Africa Centre for Open Governance (AfriCOG) in Nigeria’.</li>
-                    <li>Drafted feasibility report on the expansion of AfriCOG from Kenya to Nigeria.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Role 8 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">September 2010 – April 2012</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Peace, Security and Development Fellow</h3>
-                <p class="text-sm font-medium text-slate-700">African Leadership Centre, London</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Led and drafted study on ‘Boko Haram, leadership and exit strategies from a sectarian challenge’.</li>
-                    <li>Junior Professional Fellow at the International Peace Institute, New York (July-August, 2011).</li>
-                    <li>Contributed to visiting study at the European Union Parliament; EU Council of Ministers; EU Commission; and International Crisis Group. Brussels, Belgium (February, 2011).</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Role 9 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">March 2008 – September 2010</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Clientele Relations Executive</h3>
-                <p class="text-sm font-medium text-slate-700">Globacom Telecommunications, Lagos, Nigeria</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Regularly updated Customer Relationship Management (CRM) systems to enhance customer interaction and build business relationship for organisation.</li>
-                    <li>Satisfied clients’ requests and was awarded best customer care agent in a team of over 60 members.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Role 10 -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">January 2007 – March 2008</div>
-            <div class="md:col-span-3 space-y-2">
-                <h3 class="text-base font-bold text-slate-900">Human Resources Assistant</h3>
-                <p class="text-sm font-medium text-slate-700">Hydra Energy Resources Limited, Lagos, Nigeria</p>
-                <ul class="list-disc list-outside pl-5 text-sm text-slate-600 space-y-1">
-                    <li>Evaluated CVs and conducted interviews prior to recruitment of staff to organisations.</li>
-                    <li>Prospected and designed strategies for business development with new clients.</li>
-                    <li>Relationship management with clientele.</li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-</section>
-<!-- Education and Training Section -->
+        </section>
+        <!-- Education and Training Section -->
         <section id="education" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Education and Training</h2>
             
@@ -366,7 +416,6 @@
                         <p class="text-sm text-slate-600">Technology Roles (Indigomark)</p>
                     </div>
                 </div>
-
                 <!-- Item 2 -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">2013 – 2016</div>
@@ -375,7 +424,6 @@
                         <p class="text-sm text-slate-600">Université Paris Descartes, France</p>
                     </div>
                 </div>
-
                 <!-- Item 3 -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">2010 – 2011</div>
@@ -384,7 +432,6 @@
                         <p class="text-sm text-slate-600">King’s College London</p>
                     </div>
                 </div>
-
                 <!-- Item 4 -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">2008 – 2010</div>
@@ -393,7 +440,6 @@
                         <p class="text-sm text-slate-600">University of Lagos, Lagos, Nigeria</p>
                     </div>
                 </div>
-
                 <!-- Item 5 -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider pt-1">1999 – 2004</div>
@@ -428,7 +474,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Contact Section -->
         <section id="contact" class="scroll-mt-24 pb-12">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Contact</h2>
@@ -440,9 +485,7 @@
                 <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/akinola-olojo-ph-d-93761a3/" target="_blank" class="text-blue-600 hover:underline">https://www.linkedin.com/in/akinola-olojo-ph-d-93761a3/</a></p>
             </div>
         </section>
-
     </main>
-
     <!-- Footer -->
     <footer class="border-t border-slate-200 bg-white py-8">
         <div class="max-w-4xl mx-auto px-6 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -450,6 +493,5 @@
             <div>Professional AI & Security Governance Portfolio</div>
         </div>
     </footer>
-
 </body>
 </html>
