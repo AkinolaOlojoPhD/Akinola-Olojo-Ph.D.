@@ -26,49 +26,21 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans selection:bg-slate-200 selection:text-slate-900">
     <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm" x-data="{ mobileMenuOpen: false }">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-            <!-- Brand Logo / Name -->
-            <a href="#top" class="font-bold text-slate-900 tracking-tight hover:text-blue-600 transition-colors whitespace-nowrap text-base sm:text-lg shrink-0">
-                Dr. Akinola Olojo
-            </a>
-
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs lg:text-sm font-medium text-slate-600">
-                <a href="#about" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">About me</a>
-                <a href="#artifacts" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Artifacts</a>
-                <a href="#frameworks" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Frameworks</a>
-                <a href="#stakeholders" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Stakeholder influence</a>
-                <a href="#resume" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Resume</a>
-                <a href="#skills" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Skills</a>
-                <a href="#contact" class="px-2.5 py-1.5 rounded-md hover:text-slate-900 hover:bg-slate-100 transition-colors whitespace-nowrap">Contact</a>
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#top" class="font-normal text-slate-900 tracking-tight hover:text-blue-600 transition-colors shrink-0">Dr. Akinola Olojo</a>
+            <nav class="hidden md:flex items-center space-x-3 lg:space-x-4 text-xs lg:text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-slate-900 transition-colors">About me</a>
+                <a href="#artifacts" class="hover:text-slate-900 transition-colors">Artifacts</a>
+                <a href="#frameworks" class="hover:text-slate-900 transition-colors">Frameworks</a>
+                <a href="#stakeholders" class="hover:text-slate-900 transition-colors whitespace-nowrap">Stakeholder influence</a>
+                <a href="#resume" class="hover:text-slate-900 transition-colors">Resume</a>
+                <a href="#skills" class="hover:text-slate-900 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-slate-900 transition-colors">Contact</a>
             </nav>
-
-            <!-- Action Button & Mobile Menu Toggle -->
-            <div class="flex items-center space-x-3 shrink-0">
-                <a href="#resume" class="text-xs font-bold bg-slate-900 text-white px-3.5 py-2 rounded-lg hover:bg-slate-800 transition-colors shadow-sm whitespace-nowrap">
-                    View Resume
-                </a>
-
-                <!-- Mobile Hamburger Button -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="md:hidden p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Menu">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+            <div class="flex items-center shrink-0">
+                <a href="#resume" class="text-xs font-semibold bg-slate-900 text-white px-3 py-2 rounded-md hover:bg-slate-800 transition-colors">View Resume</a>
             </div>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div x-show="mobileMenuOpen" x-cloak class="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 text-sm font-semibold text-slate-700">
-            <a @click="mobileMenuOpen = false" href="#about" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">About me</a>
-            <a @click="mobileMenuOpen = false" href="#artifacts" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Artifacts</a>
-            <a @click="mobileMenuOpen = false" href="#frameworks" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Frameworks</a>
-            <a @click="mobileMenuOpen = false" href="#stakeholders" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Stakeholder influence</a>
-            <a @click="mobileMenuOpen = false" href="#resume" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Resume</a>
-            <a @click="mobileMenuOpen = false" href="#skills" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Skills</a>
-            <a @click="mobileMenuOpen = false" href="#contact" class="block px-3 py-2 rounded-md hover:bg-slate-100 hover:text-slate-900">Contact</a>
         </div>
     </header>
 
@@ -103,6 +75,7 @@
                 </div>
             </div>
         </section>
+
         <!-- About me Section -->
         <section id="about" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">About me</h2>
@@ -131,6 +104,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Artifacts Section -->
         <section id="artifacts" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-2">Artifacts</h2>
@@ -155,6 +129,7 @@
                         <span class="bg-slate-100 px-2.5 py-1 rounded">Federal Court Disclosures</span>
                     </div>
                 </article>
+
                 <!-- Artifact 2: AI Landscape for Engineering Firm -->
                 <article class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-all">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
@@ -173,6 +148,7 @@
                         <span class="bg-slate-100 px-2.5 py-1 rounded">Risk Probing & Pushback Mitigation</span>
                     </div>
                 </article>
+
                 <!-- Artifact 3: STDI AI Governance Policy -->
                 <article class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:border-slate-300 transition-all">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
@@ -193,6 +169,7 @@
                 </article>
             </div>
         </section>
+
         <!-- Frameworks Section -->
         <section id="frameworks" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Frameworks and standards</h2>
@@ -223,47 +200,152 @@
                 </div>
             </div>
         </section>
+
         <!-- Stakeholder Influence Section -->
         <section id="stakeholders" class="scroll-mt-24">
-            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-2">Stakeholder influence</h2>
-            <p class="text-sm text-slate-600 mb-6">Highlights of key advisory engagements, diplomatic consultations, high-level briefings, and policy workshops with global stakeholders.</p>
+            <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Stakeholder influence</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Highlight Item 1 -->
-                <div class="p-5 bg-white border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-full h-48 bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
-                            <!-- Replace src with your image file (e.g. stakeholder-1.jpg) -->
-                            <img src="stakeholder-1.jpg" alt="TikTok Safety Advisory Council Engagement" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600';">
+            <!-- Context Banner -->
+            <div class="p-5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl shadow-md mb-8">
+                <p class="text-sm sm:text-base font-medium leading-relaxed">
+                    Executive communication and cross-functional engagement with diverse stakeholders on how to address security challenges, including those posed by harmful online actors who exploit AI-powered platforms.[cite: 2]
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Group 1: Strategic Roundtables & High-Level Panels -->
+                <div>
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">High-Level Policy & Security Engagements</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="engagement-panel.jpg" alt="Panel Discussion on Security" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-3">
+                                <span class="text-[11px] font-semibold text-blue-600 block mb-0.5">Keynote Panel</span>
+                                <p class="text-xs text-slate-700 font-medium line-clamp-2">Addressing regional security challenges with policy leaders[cite: 2]</p>
+                            </div>
                         </div>
-                        <h3 class="font-bold text-slate-900 text-lg">TikTok Trust & Safety Advisory Council</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Engaging with regional experts and platform leaders across Sub-Saharan Africa to mitigate security threats, counter violent extremist content dissemination, and advise on algorithmic safety policy.
-                        </p>
-                    </div>
-                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                        Sub-Saharan Africa & Global
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="un-cted.jpg" alt="UN Security Council CTED Workshop Session" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-3">
+                                <span class="text-[11px] font-semibold text-blue-600 block mb-0.5">UN Security Council CTED</span>
+                                <p class="text-xs text-slate-700 font-medium line-clamp-2">Workshop Session: CTED and Global Research Network[cite: 2]</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="mnjtf-taskforce.jpg" alt="Multinational Joint Task Force Engagement" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-3">
+                                <span class="text-[11px] font-semibold text-blue-600 block mb-0.5">MNJTF High-Level Meeting</span>
+                                <p class="text-xs text-slate-700 font-medium line-clamp-2">Consultations with Multinational Joint Task Force leadership[cite: 2]</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Highlight Item 2 -->
-                <div class="p-5 bg-white border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-full h-48 bg-slate-100 rounded-lg overflow-hidden border border-slate-200">
-                            <!-- Replace src with your image file (e.g. stakeholder-2.jpg) -->
-                            <img src="stakeholder-2.jpg" alt="Diplomatic & Congressional Briefings" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&q=80&w=600';">
+                <!-- Group 2: Advisory & Multi-Stakeholder Forums -->
+                <div>
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">Safety Advisory & Advisory Councils</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="tiktok-council.jpg" alt="TikTok Global Working Groups Report Out" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-3">
+                                <span class="text-[11px] font-semibold text-blue-600 block mb-0.5">TikTok Advisory Council</span>
+                                <p class="text-xs text-slate-700 font-medium">Global Working Groups Report Out & Safety Advisory Council Briefing[cite: 2]</p>
+                            </div>
                         </div>
-                        <h3 class="font-bold text-slate-900 text-lg">Diplomatic & Executive Briefings</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">
-                            Delivering strategic consultations to diplomats, parliamentarians, and international security professionals at convenings including the Geneva Centre for Security Policy and US House Foreign Affairs Committee briefings.
-                        </p>
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="engagement-roundtable.jpg" alt="Cross-functional Stakeholder Roundtable" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-3">
+                                <span class="text-[11px] font-semibold text-blue-600 block mb-0.5">Policy Roundtable</span>
+                                <p class="text-xs text-slate-700 font-medium">Multi-stakeholder consultations on digital threat mitigation[cite: 2]</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                        International Security & Policy
+                </div>
+
+                <!-- Group 3: Media & Broadcast Communications -->
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Media Briefings & Broadcast Analysis</h3>
+                        <span class="text-[11px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded font-semibold">100+ TV & Radio Media Appearances</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="media-cgtn.jpg" alt="CGTN America Broadcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-2.5">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block">CGTN America</span>
+                                <p class="text-[11px] text-slate-700 font-medium line-clamp-1">Global Terrorism Analysis[cite: 2]</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="media-trt.jpg" alt="TRT World Broadcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-2.5">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block">TRT World</span>
+                                <p class="text-[11px] text-slate-700 font-medium line-clamp-1">International Security Analysis[cite: 2]</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="media-tvc.jpg" alt="TVC News Broadcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-2.5">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block">TVC News</span>
+                                <p class="text-[11px] text-slate-700 font-medium line-clamp-1">Regional Security Dynamics[cite: 2]</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="media-enca.jpg" alt="eNCA News Night Broadcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-2.5">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block">eNCA News Night</span>
+                                <p class="text-[11px] text-slate-700 font-medium line-clamp-1">Counter-Extremism Briefing[cite: 2]</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="media-sabc.jpg" alt="SABC News Broadcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-2.5">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block">SABC News</span>
+                                <p class="text-[11px] text-slate-700 font-medium line-clamp-1">Addressing Forces Driving Extremism[cite: 2]</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-lg overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video w-full overflow-hidden bg-slate-100">
+                                <img src="media-newzroom.jpg" alt="Newzroom Afrika Broadcast" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-2.5">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block">Newzroom Afrika</span>
+                                <p class="text-[11px] text-slate-700 font-medium line-clamp-1">Strategic Security Insights[cite: 2]</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Resume Section -->
         <section id="resume" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Resume</h2>
@@ -403,6 +485,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Education and Training Section -->
         <section id="education" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Education and Training</h2>
@@ -450,6 +533,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Skills Section -->
         <section id="skills" class="scroll-mt-24">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Skills</h2>
@@ -474,6 +558,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Contact Section -->
         <section id="contact" class="scroll-mt-24 pb-12">
             <h2 class="text-xl font-bold text-slate-900 tracking-tight pb-4 border-b border-slate-200 mb-6">Contact</h2>
@@ -486,6 +571,7 @@
             </div>
         </section>
     </main>
+
     <!-- Footer -->
     <footer class="border-t border-slate-200 bg-white py-8">
         <div class="max-w-4xl mx-auto px-6 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
